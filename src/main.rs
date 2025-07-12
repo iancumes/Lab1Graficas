@@ -125,15 +125,19 @@ fn main() {
     let polygon_points  = [(165,380),(185,360),(180,330),(207,345),(233,330),
                            (230,360),(250,380),(220,385),(205,410),(193,383)];
     let polygon_points2 = [(321,335),(288,286),(339,251),(374,302)];
+    let polygon_points3 = [(377,249),(411,197),(436,249)];
+
 
     // Rellenamos cada polígono (polygon_points5 lo pasamos como agujero de polygon_points4)
     fill_polygon_scanline(&mut fb, &polygon_points,  None,                          Color::WHITE);
     fill_polygon_scanline(&mut fb, &polygon_points2, None,                          Color::RED);
+    fill_polygon_scanline(&mut fb, &polygon_points3, None,                          Color::BLUE);
 
 
     // Dibujamos luego sus contornos
     draw_polygon(&mut fb, &polygon_points,  Color::WHITE);
     draw_polygon(&mut fb, &polygon_points2, Color::RED);
+    draw_polygon(&mut fb, &polygon_points3, Color::BLUE);
 
 
     // Guardamos la imagen final
