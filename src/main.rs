@@ -124,28 +124,14 @@ fn main() {
     // Definimos los polígonos
     let polygon_points  = [(165,380),(185,360),(180,330),(207,345),(233,330),
                            (230,360),(250,380),(220,385),(205,410),(193,383)];
-    let polygon_points2 = [(321,335),(288,286),(339,251),(374,302)];
-    let polygon_points3 = [(377,249),(411,197),(436,249)];
-    let polygon_points4 = [
-        (413,177),(448,159),(502, 88),(553, 53),(535, 36),
-        (676, 37),(660, 52),(750,145),(761,179),(672,192),
-        (659,214),(615,214),(632,230),(580,230),(597,215),
-        (552,214),(517,144),(466,180),
-    ];
-    let polygon_points5 = [(682,175),(708,120),(735,148),(739,170)];
+  
 
     // Rellenamos cada polígono (polygon_points5 lo pasamos como agujero de polygon_points4)
     fill_polygon_scanline(&mut fb, &polygon_points,  None,                          Color::WHITE);
-    fill_polygon_scanline(&mut fb, &polygon_points2, None,                          Color::RED);
-    fill_polygon_scanline(&mut fb, &polygon_points3, None,                          Color::BLUE);
-    fill_polygon_scanline(&mut fb, &polygon_points4, Some(&[&polygon_points5]),    Color::GREEN);
 
     // Dibujamos luego sus contornos
     draw_polygon(&mut fb, &polygon_points,  Color::WHITE);
-    draw_polygon(&mut fb, &polygon_points2, Color::RED);
-    draw_polygon(&mut fb, &polygon_points3, Color::BLUE);
-    draw_polygon(&mut fb, &polygon_points4, Color::GREEN);
-    draw_polygon(&mut fb, &polygon_points5, Color::YELLOW);
+
 
     // Guardamos la imagen final
     fb.render_to_file("out.png");
